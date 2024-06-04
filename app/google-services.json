@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "666892526458",
+    "firebase_url": "https://entertainme-firebase-default-rtdb.firebaseio.com",
+    "project_id": "entertainme-firebase",
+    "storage_bucket": "entertainme-firebase.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:666892526458:android:f6cd948634ace869f66cc3",
+        "android_client_info": {
+          "package_name": "com.mobile.entertainme"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "666892526458-9ksaqghs46h8h705j3i9uenfhq95v1rj.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mobile.entertainme",
+            "certificate_hash": "4cfb8e54dbcb6ec780f84ce3816efb3de155b332"
+          }
+        },
+        {
+          "client_id": "666892526458-nsqm8vg63q6fc6214tdm2k5f52re5r10.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyArXvn1wScNQKzZrZDTU0ltVk9oJgWaBU8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "666892526458-nsqm8vg63q6fc6214tdm2k5f52re5r10.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
