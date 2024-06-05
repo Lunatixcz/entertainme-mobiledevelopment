@@ -127,10 +127,10 @@
             card_view:layout_constraintBottom_toBottomOf="parent"/>
 
         <ImageView
-            android:id="@+id/schedule_checked_btn"
+            android:id="@+id/schedule_delete_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_checked"
+            android:src="@drawable/ic_delete"
             android:layout_marginEnd="20dp"
             card_view:layout_constraintEnd_toEndOf="parent"
             card_view:layout_constraintTop_toTopOf="parent"

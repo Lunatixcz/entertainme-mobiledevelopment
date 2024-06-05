@@ -10,10 +10,10 @@ import com.mobile.entertainme.data.ScheduleActivity
 class AddScheduleViewModel : ViewModel() {
 
     private val _isLoading = MutableLiveData<Boolean>()
-    val isLoading: LiveData<Boolean> get() = _isLoading
+    val isLoading: LiveData<Boolean> = _isLoading
 
     private val _isSuccess = MutableLiveData<Boolean>()
-    val isSuccess: LiveData<Boolean> get() = _isSuccess
+    val isSuccess: LiveData<Boolean> = _isSuccess
 
     fun addSchedule(title: String, description: String, category: String, date: String, time: String) {
         _isLoading.value = true
@@ -28,7 +28,7 @@ class AddScheduleViewModel : ViewModel() {
                 category = category,
                 date = date,
                 time = time,
-                isCompleted = false,
+                completed = false,
                 uid = uid
             )
 
@@ -38,8 +38,17 @@ class AddScheduleViewModel : ViewModel() {
             if (scheduleId != null) {
                 database.child("schedule_activity").child(scheduleId).setValue(scheduleActivity)
                     .addOnCompleteListener { task ->
-                        _isLoading.value = false
-                        _isSuccess.value = task.isSuccessful
+                        if (task.isSuccessful) {
+                            val updatedScheduleActivity = scheduleActivity.copy(firebaseKey = scheduleId)
+                            database.child("schedule_activity").child(scheduleId).setValue(updatedScheduleActivity)
+                                .addOnCompleteListener { updateTask ->
+                                    _isLoading.value = false
+                                    _isSuccess.value = updateTask.isSuccessful
+                                }
+                        } else {
+                            _isLoading.value = false
+                            _isSuccess.value = false
+                        }
                     }
             } else {
                 _isLoading.value = false
