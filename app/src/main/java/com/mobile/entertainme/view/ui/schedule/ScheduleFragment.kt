@@ -1,20 +1,18 @@
 package com.mobile.entertainme.view.ui.schedule
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.database.FirebaseDatabase
 import com.mobile.entertainme.adapter.ScheduleAdapter
 import com.mobile.entertainme.adapter.ScheduleCompletedAdapter
-import com.mobile.entertainme.data.ScheduleActivity
 import com.mobile.entertainme.databinding.FragmentScheduleBinding
 import com.mobile.entertainme.view.add.AddScheduleActivity
 
@@ -46,12 +44,45 @@ class ScheduleFragment : Fragment() {
         binding.scheduleOngoingRv.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
         binding.scheduleOngoingRv.adapter = ongoingAdapter
 
+        ongoingAdapter.registerAdapterDataObserver(object : RecyclerView.AdapterDataObserver() {
+            override fun onChanged() {
+                super.onChanged()
+                adjustRecyclerViewHeight(binding.scheduleOngoingRv, ongoingAdapter)
+            }
+
+            override fun onItemRangeInserted(positionStart: Int, itemCount: Int) {
+                super.onItemRangeInserted(positionStart, itemCount)
+                adjustRecyclerViewHeight(binding.scheduleOngoingRv, ongoingAdapter)
+            }
+
+            override fun onItemRangeRemoved(positionStart: Int, itemCount: Int) {
+                super.onItemRangeRemoved(positionStart, itemCount)
+                adjustRecyclerViewHeight(binding.scheduleOngoingRv, ongoingAdapter)
+            }
+        })
 
         completedAdapter = ScheduleCompletedAdapter { schedule ->
             scheduleViewModel.deleteSchedule(schedule)
         }
         binding.scheduleCompletedRv.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
         binding.scheduleCompletedRv.adapter = completedAdapter
+
+        completedAdapter.registerAdapterDataObserver(object : RecyclerView.AdapterDataObserver() {
+            override fun onChanged() {
+                super.onChanged()
+                adjustRecyclerViewHeight(binding.scheduleCompletedRv, completedAdapter)
+            }
+
+            override fun onItemRangeInserted(positionStart: Int, itemCount: Int) {
+                super.onItemRangeInserted(positionStart, itemCount)
+                adjustRecyclerViewHeight(binding.scheduleCompletedRv, completedAdapter)
+            }
+
+            override fun onItemRangeRemoved(positionStart: Int, itemCount: Int) {
+                super.onItemRangeRemoved(positionStart, itemCount)
+                adjustRecyclerViewHeight(binding.scheduleCompletedRv, completedAdapter)
+            }
+        })
 
         val userUid = FirebaseAuth.getInstance().currentUser?.uid ?: ""
 
@@ -74,8 +105,6 @@ class ScheduleFragment : Fragment() {
         scheduleViewModel.schedules.observe(viewLifecycleOwner) { schedules ->
             val ongoingSchedules = schedules.filter { !it.completed }
             val completedSchedules = schedules.filter { it.completed }
-            Log.d("ScheduleFragment", "Ongoing Schedules: $ongoingSchedules")
-            Log.d("ScheduleFragment", "Completed Schedules: $completedSchedules")
             ongoingAdapter.submitList(ongoingSchedules)
             completedAdapter.submitList(completedSchedules)
         }
@@ -83,6 +112,16 @@ class ScheduleFragment : Fragment() {
         scheduleViewModel.fetchSchedules(userUid)
 
         return root
+    }
+
+    private fun adjustRecyclerViewHeight(recyclerView: RecyclerView, adapter: RecyclerView.Adapter<*>) {
+        val layoutParams = recyclerView.layoutParams
+        layoutParams.height = if (adapter.itemCount > 0) ViewGroup.LayoutParams.WRAP_CONTENT else 230.dpToPx(requireContext())
+        recyclerView.layoutParams = layoutParams
+    }
+
+    private fun Int.dpToPx(context: Context): Int {
+        return (this * context.resources.displayMetrics.density).toInt()
     }
 
     override fun onDestroyView() {

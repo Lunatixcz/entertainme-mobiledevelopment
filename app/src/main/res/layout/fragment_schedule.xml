@@ -92,7 +92,7 @@
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/schedule_ongoing_rv"
                 android:layout_width="match_parent"
-                android:layout_height="230dp"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="6dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
@@ -115,7 +115,7 @@
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/schedule_completed_rv"
                 android:layout_width="match_parent"
-                android:layout_height="230dp"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="6dp"
                 android:layout_marginBottom="100dp"
                 app:layout_constraintEnd_toEndOf="parent"
