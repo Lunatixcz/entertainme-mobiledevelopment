@@ -1,40 +1,38 @@
 package com.mobile.entertainme.view.detail.movie
 
+import android.app.Application
+import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.mobile.entertainme.api.ApiConfig
+import com.mobile.entertainme.repository.MovieRepository
 import com.mobile.entertainme.response.MovieDataItem
 import com.mobile.entertainme.response.MovieResponse
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class MovieDetailViewModel : ViewModel() {
+class MovieDetailViewModel(application: Application) : AndroidViewModel(application) {
 
-    private val _movies = MutableLiveData<List<MovieDataItem>>()
-    val movies: LiveData<List<MovieDataItem>> = _movies
+    private val repository = MovieRepository()
+
+    private val _movies = MutableLiveData<List<MovieDataItem>?>()
+    val movies: MutableLiveData<List<MovieDataItem>?> = _movies
 
     private val _isLoading = MutableLiveData<Boolean>()
     val isLoading: LiveData<Boolean> = _isLoading
 
     fun fetchDetailMovies() {
         _isLoading.value = true
-        val client = ApiConfig.getApiService().getRecommendedMovies()
-        client.enqueue(object : Callback<MovieResponse> {
-            override fun onResponse(call: Call<MovieResponse>, response: Response<MovieResponse>) {
-                if (response.isSuccessful) {
-                    response.body()?.data?.let { movies ->
-                        _movies.value = movies.filterNotNull()
-                    }
-                }
-                _isLoading.value = false
-            }
 
-            override fun onFailure(call: Call<MovieResponse>, t: Throwable) {
-                // Handle failure
-                _isLoading.value = false
+        repository.getDetailMovies { movies, isError ->
+            _isLoading.value = false
+            if (!isError) {
+                _movies.value = movies
+            } else {
+                // Handle error condition
             }
-        })
+        }
     }
 }

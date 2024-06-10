@@ -1,12 +1,14 @@
 package com.mobile.entertainme.view.recommendsurvey
 
-import android.content.Context
+import android.app.Application
+import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
-import com.google.firebase.database.FirebaseDatabase
+import com.mobile.entertainme.repository.RecommendationSurveyRepository
 
-class RecommendationSurveyViewModel(context: Context) : ViewModel() {
+class RecommendationSurveyViewModel(application: Application) : AndroidViewModel(application) {
+
+    private val repository = RecommendationSurveyRepository()
 
     private val _isLoading = MutableLiveData<Boolean>()
     val isLoading: LiveData<Boolean> = _isLoading
@@ -19,18 +21,10 @@ class RecommendationSurveyViewModel(context: Context) : ViewModel() {
 
     fun submitSurvey(surveyData: HashMap<String, Any>) {
         _isLoading.value = true
-        val database = FirebaseDatabase.getInstance()
-        val surveysRef = database.getReference("recommendation_surveys")
-        val newSurveyRef = surveysRef.push()
 
-        newSurveyRef.setValue(surveyData).addOnCompleteListener { task ->
+        repository.submitSurvey(surveyData) { isSuccess ->
             _isLoading.value = false
-            if (task.isSuccessful) {
-                _isSuccessful.value = true
-            } else {
-                _isSuccessful.value = false
-                _errorMessage.value = task.exception?.message
-            }
+            _isSuccessful.value = isSuccess
         }
     }
 }

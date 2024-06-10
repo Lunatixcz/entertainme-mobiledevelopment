@@ -1,11 +1,15 @@
 package com.mobile.entertainme.view.ui.home
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ProgressBar
+import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -33,14 +37,14 @@ class HomeFragment : Fragment() {
     private lateinit var bookAdapter: BookAdapter
     private lateinit var movieAdapter: MovieAdapter
     private lateinit var auth: FirebaseAuth
+    private lateinit var homeViewModel: HomeViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val homeViewModel =
-            ViewModelProvider(this)[HomeViewModel::class.java]
+        homeViewModel = ViewModelProvider(this)[HomeViewModel::class.java]
 
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val root: View = binding.root
@@ -52,6 +56,39 @@ class HomeFragment : Fragment() {
 
         homeViewModel.username.observe(viewLifecycleOwner) { username ->
             binding.username.text = username
+        }
+
+        homeViewModel.books.observe(viewLifecycleOwner) { books ->
+            showLoading(binding.bookProgressBar, false)
+            bookAdapter.submitList(books)
+        }
+
+        homeViewModel.movies.observe(viewLifecycleOwner) { movies ->
+            showLoading(binding.movieProgressBar, false)
+            movieAdapter.submitList(movies)
+        }
+
+        homeViewModel.stressPrediction.observe(viewLifecycleOwner) { prediction ->
+            val stressLevel = when (prediction) {
+                null -> getString(R.string.none)
+                else -> prediction.toString()
+            }
+            binding.stressLabel.text = stressLevel
+
+            // Update margin based on prediction value
+            val stressTextLayoutParams = binding.stressText.layoutParams as ConstraintLayout.LayoutParams
+            val marginStartDp = if (prediction == null) 80 else 100
+            stressTextLayoutParams.marginStart = requireContext().dpToPx(marginStartDp)
+            binding.stressText.layoutParams = stressTextLayoutParams
+
+            // Update color based on prediction value
+            val color = when (prediction) {
+                in 1..4 -> R.color.light_blue
+                in 5..7 -> R.color.yellow
+                in 8..10 -> R.color.red
+                else -> R.color.light_blue
+            }
+            binding.stressContainer.setBackgroundColor(ContextCompat.getColor(requireContext(), color))
         }
 
         binding.logout.setOnClickListener {
@@ -91,43 +128,21 @@ class HomeFragment : Fragment() {
     }
 
     private fun fetchBooks() {
-        val user = auth.currentUser
-        val uid = user?.uid
-
-        if (uid != null) {
-            val client = ApiConfig.getApiService().getRecommendedBooks(uid)
-            client.enqueue(object : Callback<BookResponse> {
-                override fun onResponse(call: Call<BookResponse>, response: Response<BookResponse>) {
-                    if (response.isSuccessful) {
-                        val books = response.body()?.titles?.filterNotNull()
-                        books?.forEach { Log.d("BookData", it.toString()) }
-                        bookAdapter.submitList(books)
-                    }
-                }
-                override fun onFailure(call: Call<BookResponse>, t: Throwable) {
-                    // Handle failure
-                }
-            })
-        } else {
-            // Handle case where user is not logged in
-        }
+        showLoading(binding.bookProgressBar, true)
+        homeViewModel.fetchBooks()
     }
 
     private fun fetchMovies() {
-        val client = ApiConfig.getApiService().getRecommendedMovies()
-        client.enqueue(object : Callback<MovieResponse> {
-            override fun onResponse(call: Call<MovieResponse>, response: Response<MovieResponse>) {
-                if (response.isSuccessful) {
-                    response.body()?.data?.let { movies ->
-                        movieAdapter.submitList(movies.filterNotNull())
-                    }
-                }
-            }
+        showLoading(binding.movieProgressBar, true)
+        homeViewModel.fetchMovies()
+    }
 
-            override fun onFailure(call: Call<MovieResponse>, t: Throwable) {
-                // Handle failure
-            }
-        })
+    private fun showLoading(progressBar: ProgressBar, isLoading: Boolean) {
+        progressBar.visibility = if (isLoading) View.VISIBLE else View.GONE
+    }
+
+    private fun Context.dpToPx(dp: Int): Int {
+        return (dp * resources.displayMetrics.density).toInt()
     }
 
     override fun onDestroyView() {

@@ -1,13 +1,18 @@
 package com.mobile.entertainme.view.add
 
+import android.app.Application
+import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
 import com.mobile.entertainme.data.ScheduleActivity
+import com.mobile.entertainme.repository.ScheduleRepository
 
-class AddScheduleViewModel : ViewModel() {
+class AddScheduleViewModel(application: Application) : AndroidViewModel(application) {
+
+    private val repository = ScheduleRepository()
 
     private val _isLoading = MutableLiveData<Boolean>()
     val isLoading: LiveData<Boolean> = _isLoading
@@ -32,27 +37,9 @@ class AddScheduleViewModel : ViewModel() {
                 uid = uid
             )
 
-            val database = FirebaseDatabase.getInstance().reference
-            val scheduleId = database.child("schedule_activity").push().key
-
-            if (scheduleId != null) {
-                database.child("schedule_activity").child(scheduleId).setValue(scheduleActivity)
-                    .addOnCompleteListener { task ->
-                        if (task.isSuccessful) {
-                            val updatedScheduleActivity = scheduleActivity.copy(firebaseKey = scheduleId)
-                            database.child("schedule_activity").child(scheduleId).setValue(updatedScheduleActivity)
-                                .addOnCompleteListener { updateTask ->
-                                    _isLoading.value = false
-                                    _isSuccess.value = updateTask.isSuccessful
-                                }
-                        } else {
-                            _isLoading.value = false
-                            _isSuccess.value = false
-                        }
-                    }
-            } else {
+            repository.addSchedule(scheduleActivity) { isSuccess ->
                 _isLoading.value = false
-                _isSuccess.value = false
+                _isSuccess.value = isSuccess
             }
         } else {
             _isLoading.value = false

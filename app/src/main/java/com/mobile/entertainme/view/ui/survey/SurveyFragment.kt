@@ -2,6 +2,7 @@ package com.mobile.entertainme.view.ui.survey
 
 import android.content.Intent
 import android.os.Bundle
+import android.text.InputFilter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -58,6 +59,19 @@ class SurveyFragment : Fragment() {
             }
         }
 
+        binding.edStressFirstQuestion.filters = arrayOf(InputFilter { source, start, end, dest, dstart, dend ->
+            val input = dest.toString() + source.toString()
+            try {
+                if (input.toInt() <= 15) {
+                    null
+                } else {
+                    ""
+                }
+            } catch (e: NumberFormatException) {
+                ""
+            }
+        })
+
         return root
     }
 
@@ -79,7 +93,20 @@ class SurveyFragment : Fragment() {
         if (uid != null) {
             surveyData["user_id"] = uid
 
-            surveyData["stress_first_question"] = binding.edStressFirstQuestion.text.toString()
+            val firstQuestionAnswer = binding.edStressFirstQuestion.text.toString()
+            if (firstQuestionAnswer.isEmpty()) {
+                Toast.makeText(requireContext(), "Please answer all the questions first", Toast.LENGTH_SHORT).show()
+                return
+            } else {
+                surveyData["stress_first_question"] = firstQuestionAnswer
+            }
+
+            // Checking if other questions are answered
+            val allQuestionsAnswered = checkAllQuestionsAnswered()
+            if (!allQuestionsAnswered) {
+                Toast.makeText(requireContext(), "Please answer all the questions first", Toast.LENGTH_SHORT).show()
+                return
+            }
 
             addToSurveyDataIfChecked(binding.stressSecondQuestionOption1, "stress_second_question", surveyData)
             addToSurveyDataIfChecked(binding.stressSecondQuestionOption2, "stress_second_question", surveyData)
@@ -110,11 +137,21 @@ class SurveyFragment : Fragment() {
             addToSurveyDataIfChecked(binding.stressEighthQuestionOption2, "stress_eighth_question", surveyData)
 
             surveyViewModel.submitSurvey(surveyData)
+            surveyViewModel.fetchStressPrediction()
         } else {
             Toast.makeText(requireContext(), "User not logged in", Toast.LENGTH_SHORT).show()
         }
     }
 
+    private fun checkAllQuestionsAnswered(): Boolean {
+        return binding.stressSecondQuestionRadioGroup.checkedRadioButtonId != -1 &&
+                binding.stressThirdQuestionRadioGroup.checkedRadioButtonId != -1 &&
+                binding.stressFourthQuestionRadioGroup.checkedRadioButtonId != -1 &&
+                binding.stressFifthQuestionRadioGroup.checkedRadioButtonId != -1 &&
+                binding.stressSixthQuestionRadioGroup.checkedRadioButtonId != -1 &&
+                binding.stressSeventhQuestionRadioGroup.checkedRadioButtonId != -1 &&
+                binding.stressEighthQuestionRadioGroup.checkedRadioButtonId != -1
+    }
 
     private fun showLoading(isLoading: Boolean) {
         binding.progressBar.visibility = if (isLoading) View.VISIBLE else View.GONE

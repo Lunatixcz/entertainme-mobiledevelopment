@@ -117,6 +117,11 @@ class RecommendationSurveyActivity : AppCompatActivity() {
         if (uid != null) {
             surveyData["user_id"] = uid
 
+            if (!allQuestionsAnswered()) {
+                Toast.makeText(this, "Please answer all the questions first", Toast.LENGTH_SHORT).show()
+                return
+            }
+
             addToSurveyDataIfChecked(binding.bookFirstQuestionOption1, "book_first_question", surveyData)
             addToSurveyDataIfChecked(binding.edBookFirstQuestion, "book_first_question", surveyData)
 
@@ -202,6 +207,54 @@ class RecommendationSurveyActivity : AppCompatActivity() {
             Toast.makeText(this, "User not logged in", Toast.LENGTH_SHORT).show()
         }
     }
+
+    private fun allQuestionsAnswered(): Boolean {
+        val editTextQuestions = listOf(
+            binding.edBookFirstQuestion,
+            binding.edBookSecondQuestion,
+            binding.edBookThirdQuestion,
+            binding.edMovieFirstQuestion,
+            binding.edMovieSecondQuestion,
+            binding.edMovieThirdQuestion,
+            binding.edMovieFourthQuestion,
+            binding.edMovieSeventhQuestion,
+            binding.edMovieEighthQuestion,
+            binding.edMovieNinthQuestion,
+            binding.edMovieTenthQuestion,
+            binding.edTourFirstQuestion,
+            binding.edTourSecondQuestion
+        )
+
+        val radioGroupQuestions = listOf(
+            binding.bookFirstQuestionRadioGroup,
+            binding.bookSecondQuestionRadioGroup,
+            binding.bookThirdQuestionRadioGroup,
+            binding.movieFirstQuestionRadioGroup,
+            binding.movieSecondQuestionRadioGroup,
+            binding.movieThirdQuestionRadioGroup,
+            binding.movieSeventhQuestionRadioGroup,
+            binding.movieEighthQuestionRadioGroup,
+            binding.movieNinthQuestionRadioGroup,
+            binding.movieTenthQuestionRadioGroup,
+            binding.tourFirstQuestionRadioGroup,
+            binding.tourSecondQuestionRadioGroup
+        )
+
+        for (editText in editTextQuestions) {
+            if (editText.isEnabled && editText.text.toString().trim().isEmpty()) {
+                return false
+            }
+        }
+
+        for (radioGroup in radioGroupQuestions) {
+            if (radioGroup.checkedRadioButtonId == -1) {
+                return false
+            }
+        }
+
+        return true
+    }
+
 
     private fun showLoading(isLoading: Boolean) {
         binding.progressBar.visibility = if (isLoading) View.VISIBLE else View.GONE

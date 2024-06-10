@@ -97,7 +97,7 @@
     <string name="see_all">See all</string>
     <string name="survey_stress_title">Stress Test</string>
     <string name="survey_stress_description">Feel free to answer these questions based on your honest so we can measure your stress level accurately!</string>
-    <string name="stress_first_question">How many hours do you typically sleep on average?</string>
+    <string name="stress_first_question">How many hours do you typically sleep on average? (max 15)</string>
     <string name="stress_second_question">How would you rate the quality of your sleep recently?</string>
     <string name="stress_third_question">How heavy is the activity you have been doing lately, physically or mentally?</string>
     <string name="stress_fourth_question">Which category does your weight fall into?</string>
