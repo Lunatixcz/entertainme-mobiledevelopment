@@ -317,30 +317,26 @@
                     android:id="@+id/movie_first_question_option1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/i_need_reference"/>
+                    android:text="@string/last_5_years"/>
 
                 <RadioButton
                     android:id="@+id/movie_first_question_option2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/yes_give_the_movie_title"/>
+                    android:text="@string/last_10_years"/>
 
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/movie_first_question_input_layout"
-                    android:layout_width="300dp"
+                <RadioButton
+                    android:id="@+id/movie_first_question_option3"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:layout_constraintTop_toBottomOf="@id/movie_first_question_option2"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintWidth_percent="0.8">
+                    android:text="@string/last_20_years"/>
 
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/ed_movie_first_question"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text=""
-                        android:inputType="text"/>
-                </com.google.android.material.textfield.TextInputLayout>
+                <RadioButton
+                    android:id="@+id/movie_first_question_option4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/any_year"/>
+
             </RadioGroup>
 
             <TextView
@@ -369,30 +365,19 @@
                     android:id="@+id/movie_second_question_option1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/i_need_reference"/>
+                    android:text="@string/short_less_than_90_minutes"/>
 
                 <RadioButton
                     android:id="@+id/movie_second_question_option2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/yes_give_the_movie_year"/>
+                    android:text="@string/regular_less_than_150_minutes"/>
 
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/movie_second_question_input_layout"
-                    android:layout_width="300dp"
+                <RadioButton
+                    android:id="@+id/movie_second_question_option3"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:layout_constraintTop_toBottomOf="@id/movie_second_question_option2"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintWidth_percent="0.8">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/ed_movie_second_question"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text=""
-                        android:inputType="text"/>
-                </com.google.android.material.textfield.TextInputLayout>
+                    android:text="@string/long_more_than_150_minutes"/>
             </RadioGroup>
 
             <TextView
@@ -408,44 +393,23 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"/>
 
-            <RadioGroup
-                android:id="@+id/movie_third_question_radio_group"
-                android:layout_width="wrap_content"
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/movie_third_question_input_layout"
+                android:layout_width="300dp"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="26dp"
+                android:layout_marginTop="4dp"
                 app:layout_constraintTop_toBottomOf="@id/movie_third_question"
                 app:layout_constraintStart_toStartOf="parent"
-                android:layout_marginStart="24dp"
-                android:layout_marginTop="14dp">
+                app:layout_constraintWidth_percent="0.8">
 
-                <RadioButton
-                    android:id="@+id/movie_third_question_option1"
-                    android:layout_width="wrap_content"
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/ed_movie_third_question"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/i_need_reference"/>
-
-                <RadioButton
-                    android:id="@+id/movie_third_question_option2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/yes_give_the_movie_certificate"/>
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/movie_third_question_input_layout"
-                    android:layout_width="300dp"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintTop_toBottomOf="@id/movie_third_question_option2"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintWidth_percent="0.8">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/ed_movie_third_question"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text=""
-                        android:inputType="text"/>
-                </com.google.android.material.textfield.TextInputLayout>
-            </RadioGroup>
+                    android:text=""
+                    android:inputType="text"/>
+            </com.google.android.material.textfield.TextInputLayout>
 
             <TextView
                 android:id="@+id/movie_fourth_question"
@@ -456,7 +420,7 @@
                 android:paddingHorizontal="24dp"
                 android:textSize="14sp"
                 android:layout_marginTop="42dp"
-                app:layout_constraintTop_toBottomOf="@+id/movie_third_question_radio_group"
+                app:layout_constraintTop_toBottomOf="@+id/movie_third_question_input_layout"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"/>
 
@@ -475,7 +439,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text=""
-                    android:inputType="text"/>
+                    android:inputType="number"/>
             </com.google.android.material.textfield.TextInputLayout>
 
             <TextView
@@ -504,25 +468,30 @@
                     android:id="@+id/movie_fifth_question_option1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/action"/>
+                    android:text="@string/i_need_recommendation"/>
 
                 <RadioButton
                     android:id="@+id/movie_fifth_question_option2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/fantasy"/>
+                    android:text="@string/yes_give_the_director"/>
 
-                <RadioButton
-                    android:id="@+id/movie_fifth_question_option3"
-                    android:layout_width="wrap_content"
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/movie_fifth_question_input_layout"
+                    android:layout_width="300dp"
                     android:layout_height="wrap_content"
-                    android:text="@string/horror"/>
+                    app:layout_constraintTop_toBottomOf="@id/book_first_question_option2"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintWidth_percent="0.8">
 
-                <RadioButton
-                    android:id="@+id/movie_fifth_question_option4"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/romance"/>
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/ed_movie_fifth_question"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text=""
+                        android:inputType="text"/>
+                </com.google.android.material.textfield.TextInputLayout>
             </RadioGroup>
 
             <TextView
@@ -551,25 +520,30 @@
                     android:id="@+id/movie_sixth_question_option1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/no_preference"/>
+                    android:text="@string/i_need_recommendation"/>
 
                 <RadioButton
                     android:id="@+id/movie_sixth_question_option2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/star_3"/>
+                    android:text="@string/yes_give_the_actor"/>
 
-                <RadioButton
-                    android:id="@+id/movie_sixth_question_option3"
-                    android:layout_width="wrap_content"
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/movie_sixth_question_input_layout"
+                    android:layout_width="300dp"
                     android:layout_height="wrap_content"
-                    android:text="@string/star_6"/>
+                    app:layout_constraintTop_toBottomOf="@id/book_first_question_option2"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintWidth_percent="0.8">
 
-                <RadioButton
-                    android:id="@+id/movie_sixth_question_option4"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/star_10"/>
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/ed_movie_sixth_question"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text=""
+                        android:inputType="text"/>
+                </com.google.android.material.textfield.TextInputLayout>
             </RadioGroup>
 
             <TextView
@@ -598,187 +572,21 @@
                     android:id="@+id/movie_seventh_question_option1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/i_need_reference"/>
+                    android:text="@string/movies_that_are_lesser_known"/>
 
                 <RadioButton
                     android:id="@+id/movie_seventh_question_option2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/yes_give_the_overview"/>
+                    android:text="@string/movies_that_are_talked_about_quite_often"/>
 
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/movie_seventh_question_input_layout"
-                    android:layout_width="300dp"
+                <RadioButton
+                    android:id="@+id/movie_seventh_question_option3"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:layout_constraintTop_toBottomOf="@id/movie_seventh_question_option2"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintWidth_percent="0.8">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/ed_movie_seventh_question"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text=""
-                        android:inputType="text"/>
-                </com.google.android.material.textfield.TextInputLayout>
+                    android:text="@string/popular_movies_that_many_people_know_abou"/>
             </RadioGroup>
 
-            <TextView
-                android:id="@+id/movie_eighth_question"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/movie_eighth_question"
-                android:textColor="@color/black"
-                android:paddingHorizontal="24dp"
-                android:textSize="14sp"
-                android:layout_marginTop="42dp"
-                app:layout_constraintTop_toBottomOf="@+id/movie_seventh_question_radio_group"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"/>
-
-            <RadioGroup
-                android:id="@+id/movie_eighth_question_radio_group"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@id/movie_eighth_question"
-                app:layout_constraintStart_toStartOf="parent"
-                android:layout_marginStart="24dp"
-                android:layout_marginTop="14dp">
-
-                <RadioButton
-                    android:id="@+id/movie_eighth_question_option1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/i_need_reference"/>
-
-                <RadioButton
-                    android:id="@+id/movie_eighth_question_option2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/yes_give_the_director"/>
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/movie_eighth_question_input_layout"
-                    android:layout_width="300dp"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintTop_toBottomOf="@id/movie_eighth_question_option2"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintWidth_percent="0.8">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/ed_movie_eighth_question"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text=""
-                        android:inputType="text"/>
-                </com.google.android.material.textfield.TextInputLayout>
-            </RadioGroup>
-
-            <TextView
-                android:id="@+id/movie_ninth_question"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/movie_ninth_question"
-                android:textColor="@color/black"
-                android:paddingHorizontal="24dp"
-                android:textSize="14sp"
-                android:layout_marginTop="42dp"
-                app:layout_constraintTop_toBottomOf="@+id/movie_eighth_question_radio_group"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"/>
-
-            <RadioGroup
-                android:id="@+id/movie_ninth_question_radio_group"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@id/movie_ninth_question"
-                app:layout_constraintStart_toStartOf="parent"
-                android:layout_marginStart="24dp"
-                android:layout_marginTop="14dp">
-
-                <RadioButton
-                    android:id="@+id/movie_ninth_question_option1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/i_need_reference"/>
-
-                <RadioButton
-                    android:id="@+id/movie_ninth_question_option2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/yes_give_the_actor"/>
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/movie_ninth_question_input_layout"
-                    android:layout_width="300dp"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintTop_toBottomOf="@id/movie_ninth_question_option2"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintWidth_percent="0.8">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/ed_movie_ninth_question"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text=""
-                        android:inputType="text"/>
-                </com.google.android.material.textfield.TextInputLayout>
-            </RadioGroup>
-
-            <TextView
-                android:id="@+id/movie_tenth_question"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/movie_tenth_question"
-                android:textColor="@color/black"
-                android:paddingHorizontal="24dp"
-                android:textSize="14sp"
-                android:layout_marginTop="42dp"
-                app:layout_constraintTop_toBottomOf="@+id/movie_ninth_question_radio_group"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"/>
-
-            <RadioGroup
-                android:id="@+id/movie_tenth_question_radio_group"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@id/movie_tenth_question"
-                app:layout_constraintStart_toStartOf="parent"
-                android:layout_marginStart="24dp"
-                android:layout_marginTop="14dp">
-
-                <RadioButton
-                    android:id="@+id/movie_tenth_question_option1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/i_need_reference"/>
-
-                <RadioButton
-                    android:id="@+id/movie_tenth_question_option2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/yes_give_the_vote"/>
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/movie_tenth_question_input_layout"
-                    android:layout_width="300dp"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintTop_toBottomOf="@id/movie_tenth_question_option2"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintWidth_percent="0.8">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/ed_movie_tenth_question"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text=""
-                        android:inputType="text"/>
-                </com.google.android.material.textfield.TextInputLayout>
-            </RadioGroup>
 
             <TextView
                 android:id="@+id/tour_first_question"
@@ -789,7 +597,7 @@
                 android:paddingHorizontal="24dp"
                 android:textSize="14sp"
                 android:layout_marginTop="42dp"
-                app:layout_constraintTop_toBottomOf="@+id/movie_tenth_question_radio_group"
+                app:layout_constraintTop_toBottomOf="@+id/movie_seventh_question_radio_group"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"/>
 

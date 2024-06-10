@@ -70,13 +70,8 @@ class RecommendationSurveyActivity : AppCompatActivity() {
             binding.bookFirstQuestionRadioGroup to Pair(binding.bookFirstQuestionOption2.id, binding.edBookFirstQuestion),
             binding.bookSecondQuestionRadioGroup to Pair(binding.bookSecondQuestionOption2.id, binding.edBookSecondQuestion),
             binding.bookThirdQuestionRadioGroup to Pair(binding.bookThirdQuestionOption2.id, binding.edBookThirdQuestion),
-            binding.movieFirstQuestionRadioGroup to Pair(binding.movieFirstQuestionOption2.id, binding.edMovieFirstQuestion),
-            binding.movieSecondQuestionRadioGroup to Pair(binding.movieSecondQuestionOption2.id, binding.edMovieSecondQuestion),
-            binding.movieThirdQuestionRadioGroup to Pair(binding.movieThirdQuestionOption2.id, binding.edMovieThirdQuestion),
-            binding.movieSeventhQuestionRadioGroup to Pair(binding.movieSeventhQuestionOption2.id, binding.edMovieSeventhQuestion),
-            binding.movieEighthQuestionRadioGroup to Pair(binding.movieEighthQuestionOption2.id, binding.edMovieEighthQuestion),
-            binding.movieNinthQuestionRadioGroup to Pair(binding.movieNinthQuestionOption2.id, binding.edMovieNinthQuestion),
-            binding.movieTenthQuestionRadioGroup to Pair(binding.movieTenthQuestionOption2.id, binding.edMovieTenthQuestion),
+            binding.movieFifthQuestionRadioGroup to Pair(binding.movieSixthQuestionOption2.id, binding.edMovieSixthQuestion),
+            binding.movieSixthQuestionRadioGroup to Pair(binding.movieSixthQuestionOption2.id, binding.edMovieSixthQuestion),
             binding.tourFirstQuestionRadioGroup to Pair(binding.tourFirstQuestionOption2.id, binding.edTourFirstQuestion),
             binding.tourSecondQuestionRadioGroup to Pair(binding.tourSecondQuestionOption2.id, binding.edTourSecondQuestion)
         )
@@ -142,37 +137,27 @@ class RecommendationSurveyActivity : AppCompatActivity() {
             addToSurveyDataIfChecked(binding.bookFifthQuestionOption4, "book_fifth_question", surveyData)
 
             addToSurveyDataIfChecked(binding.movieFirstQuestionOption1, "movie_first_question", surveyData)
-            addToSurveyDataIfChecked(binding.edMovieFirstQuestion, "movie_first_question", surveyData)
+            addToSurveyDataIfChecked(binding.movieFirstQuestionOption2, "movie_first_question", surveyData)
+            addToSurveyDataIfChecked(binding.movieFirstQuestionOption3, "movie_first_question", surveyData)
+            addToSurveyDataIfChecked(binding.movieFirstQuestionOption4, "movie_first_question", surveyData)
 
             addToSurveyDataIfChecked(binding.movieSecondQuestionOption1, "movie_second_question", surveyData)
-            addToSurveyDataIfChecked(binding.edMovieSecondQuestion, "movie_second_question", surveyData)
+            addToSurveyDataIfChecked(binding.movieSecondQuestionOption2, "movie_second_question", surveyData)
+            addToSurveyDataIfChecked(binding.movieSecondQuestionOption3, "movie_second_question", surveyData)
 
-            addToSurveyDataIfChecked(binding.movieThirdQuestionOption1, "movie_third_question", surveyData)
-            addToSurveyDataIfChecked(binding.edMovieThirdQuestion, "movie_third_question", surveyData)
+            surveyData["movie_third_question"] = binding.edMovieThirdQuestion.text.toString()
 
             surveyData["movie_fourth_question"] = binding.edMovieFourthQuestion.text.toString()
 
             addToSurveyDataIfChecked(binding.movieFifthQuestionOption1, "movie_fifth_question", surveyData)
-            addToSurveyDataIfChecked(binding.movieFifthQuestionOption2, "movie_fifth_question", surveyData)
-            addToSurveyDataIfChecked(binding.movieFifthQuestionOption3, "movie_fifth_question", surveyData)
-            addToSurveyDataIfChecked(binding.movieFifthQuestionOption4, "movie_fifth_question", surveyData)
+            addToSurveyDataIfChecked(binding.edMovieFifthQuestion, "movie_fifth_question", surveyData)
 
             addToSurveyDataIfChecked(binding.movieSixthQuestionOption1, "movie_sixth_question", surveyData)
-            addToSurveyDataIfChecked(binding.movieSixthQuestionOption2, "movie_sixth_question", surveyData)
-            addToSurveyDataIfChecked(binding.movieSixthQuestionOption3, "movie_sixth_question", surveyData)
-            addToSurveyDataIfChecked(binding.movieSixthQuestionOption4, "movie_sixth_question", surveyData)
+            addToSurveyDataIfChecked(binding.edMovieSixthQuestion, "movie_sixth_question", surveyData)
 
             addToSurveyDataIfChecked(binding.movieSeventhQuestionOption1, "movie_seventh_question", surveyData)
-            addToSurveyDataIfChecked(binding.edMovieSeventhQuestion, "movie_seventh_question", surveyData)
-
-            addToSurveyDataIfChecked(binding.movieEighthQuestionOption1, "movie_eighth_question", surveyData)
-            addToSurveyDataIfChecked(binding.edMovieEighthQuestion, "movie_eighth_question", surveyData)
-
-            addToSurveyDataIfChecked(binding.movieNinthQuestionOption1, "movie_ninth_question", surveyData)
-            addToSurveyDataIfChecked(binding.edMovieNinthQuestion, "movie_ninth_question", surveyData)
-
-            addToSurveyDataIfChecked(binding.movieTenthQuestionOption1, "movie_tenth_question", surveyData)
-            addToSurveyDataIfChecked(binding.edMovieTenthQuestion, "movie_tenth_question", surveyData)
+            addToSurveyDataIfChecked(binding.movieSeventhQuestionOption2, "movie_seventh_question", surveyData)
+            addToSurveyDataIfChecked(binding.movieSeventhQuestionOption3, "movie_seventh_question", surveyData)
 
             addToSurveyDataIfChecked(binding.tourFirstQuestionOption1, "tour_first_question", surveyData)
             addToSurveyDataIfChecked(binding.edTourFirstQuestion, "tour_first_question", surveyData)
@@ -213,14 +198,10 @@ class RecommendationSurveyActivity : AppCompatActivity() {
             binding.edBookFirstQuestion,
             binding.edBookSecondQuestion,
             binding.edBookThirdQuestion,
-            binding.edMovieFirstQuestion,
-            binding.edMovieSecondQuestion,
             binding.edMovieThirdQuestion,
             binding.edMovieFourthQuestion,
-            binding.edMovieSeventhQuestion,
-            binding.edMovieEighthQuestion,
-            binding.edMovieNinthQuestion,
-            binding.edMovieTenthQuestion,
+            binding.edMovieFifthQuestion,
+            binding.edMovieSixthQuestion,
             binding.edTourFirstQuestion,
             binding.edTourSecondQuestion
         )
@@ -231,11 +212,9 @@ class RecommendationSurveyActivity : AppCompatActivity() {
             binding.bookThirdQuestionRadioGroup,
             binding.movieFirstQuestionRadioGroup,
             binding.movieSecondQuestionRadioGroup,
-            binding.movieThirdQuestionRadioGroup,
+            binding.movieFifthQuestionRadioGroup,
+            binding.movieSixthQuestionRadioGroup,
             binding.movieSeventhQuestionRadioGroup,
-            binding.movieEighthQuestionRadioGroup,
-            binding.movieNinthQuestionRadioGroup,
-            binding.movieTenthQuestionRadioGroup,
             binding.tourFirstQuestionRadioGroup,
             binding.tourSecondQuestionRadioGroup
         )
