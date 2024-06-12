@@ -19,27 +19,27 @@ data class BookResponse(
 
 data class BookDataItem(
 
-	@field:SerializedName("author")
-	val author: String? = null,
-
-	@field:SerializedName("genres")
-	val genres: String? = null,
-
-	@field:SerializedName("book")
-	val book: String? = null,
-
-	@field:SerializedName("rating")
-	val rating: Any? = null,
-
-	@field:SerializedName("description")
-	val description: String? = null,
-
 	@field:SerializedName("coverUrl")
 	val coverUrl: String? = null,
+
+	@field:SerializedName("Description")
+	val description: String? = null,
 
 	@field:SerializedName("publishYear")
 	val publishYear: String? = null,
 
 	@field:SerializedName("infoUrl")
-	val infoUrl: String? = null
+	val infoUrl: String? = null,
+
+	@field:SerializedName("Book")
+	val book: String? = null,
+
+	@field:SerializedName("Author")
+	val author: String? = null,
+
+	@field:SerializedName("Genres")
+	val genres: String? = null,
+
+	@field:SerializedName("Avg_Rating")
+	val avgRating: Any? = null
 )

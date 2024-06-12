@@ -13,9 +13,15 @@ class MovieDetailAdapter : ListAdapter<MovieDataItem, MovieDetailAdapter.MovieVi
 
     inner class MovieViewHolder(private val binding: MovieDetailItemBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(movie: MovieDataItem) {
-            binding.ivItemMovieCover.load(movie.posterUrl)
-            binding.movieYear.text = movie.releaseYear
-            binding.movieTitle.text = movie.title
+            binding.ivItemMovieCover.load(movie.coverUrl)
+            binding.movieYear.text = movie.year.toString()
+            binding.movieTitle.text = movie.movieName
+            binding.genreText.text = movie.genre
+            binding.voteText.text = movie.votes.toString()
+            binding.durationText.text = movie.runtime.toString()
+            binding.ratingText.text = movie.rating.toString()
+            binding.castText.text = movie.star?.replace("\n", " ")
+            binding.directorText.text = movie.director?.replace("\n", " ")
         }
     }
 
@@ -35,7 +41,7 @@ class MovieDetailAdapter : ListAdapter<MovieDataItem, MovieDetailAdapter.MovieVi
     companion object {
         val DIFF_CALLBACK = object : DiffUtil.ItemCallback<MovieDataItem>() {
             override fun areItemsTheSame(oldItem: MovieDataItem, newItem: MovieDataItem): Boolean {
-                return oldItem.key == newItem.key
+                return oldItem.coverUrl == newItem.coverUrl
             }
 
             override fun areContentsTheSame(oldItem: MovieDataItem, newItem: MovieDataItem): Boolean {

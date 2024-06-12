@@ -9,12 +9,12 @@ import retrofit2.Response
 
 class MovieRepository {
 
-    fun getDetailMovies(callback: (List<MovieDataItem>?, Boolean) -> Unit) {
-        val client = ApiConfig.getApiService().getRecommendedMovies()
+    fun getDetailMovies(uid: String, callback: (List<MovieDataItem>?, Boolean) -> Unit) {
+        val client = ApiConfig.getApiService().getRecommendedMovies(uid)
         client.enqueue(object : Callback<MovieResponse> {
             override fun onResponse(call: Call<MovieResponse>, response: Response<MovieResponse>) {
                 if (response.isSuccessful) {
-                    val movies = response.body()?.data?.filterNotNull()
+                    val movies = response.body()?.movies?.filterNotNull()
                     callback(movies, false)
                 } else {
                     callback(null, true)

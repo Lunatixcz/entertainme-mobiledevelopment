@@ -71,7 +71,8 @@ class HomeViewModel(application: Application) : AndroidViewModel(application) {
     }
 
     fun fetchMovies() {
-        repository.fetchMovies()
+        val uid = auth.currentUser?.uid ?: return
+        repository.fetchMovies(uid)
     }
 
     fun logout() {

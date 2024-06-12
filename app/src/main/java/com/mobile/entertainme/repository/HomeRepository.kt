@@ -36,12 +36,12 @@ class HomeRepository {
         })
     }
 
-    fun fetchMovies() {
-        val client = ApiConfig.getApiService().getRecommendedMovies()
+    fun fetchMovies(uid: String) {
+        val client = ApiConfig.getApiService().getRecommendedMovies(uid)
         client.enqueue(object : Callback<MovieResponse> {
             override fun onResponse(call: Call<MovieResponse>, response: Response<MovieResponse>) {
                 if (response.isSuccessful) {
-                    _movies.value = response.body()?.data?.filterNotNull()
+                    _movies.value = response.body()?.movies?.filterNotNull()
                 }
             }
 

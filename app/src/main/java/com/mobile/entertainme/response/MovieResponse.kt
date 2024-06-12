@@ -4,8 +4,11 @@ import com.google.gson.annotations.SerializedName
 
 data class MovieResponse(
 
-	@field:SerializedName("data")
-	val data: List<MovieDataItem?>? = null,
+	@field:SerializedName("movies")
+	val movies: List<MovieDataItem?>? = null,
+
+	@field:SerializedName("movie_count")
+	val movieCount: Int? = null,
 
 	@field:SerializedName("message")
 	val message: String? = null,
@@ -16,15 +19,30 @@ data class MovieResponse(
 
 data class MovieDataItem(
 
-	@field:SerializedName("release_year")
-	val releaseYear: String? = null,
+	@field:SerializedName("cover_url")
+	val coverUrl: String? = null,
 
-	@field:SerializedName("poster_url")
-	val posterUrl: String? = null,
+	@field:SerializedName("star")
+	val star: String? = null,
 
-	@field:SerializedName("title")
-	val title: String? = null,
+	@field:SerializedName("year")
+	val year: Int? = null,
 
-	@field:SerializedName("key")
-	val key: String? = null
+	@field:SerializedName("director")
+	val director: String? = null,
+
+	@field:SerializedName("genre")
+	val genre: String? = null,
+
+	@field:SerializedName("rating")
+	val rating: Any? = null,
+
+	@field:SerializedName("runtime")
+	val runtime: Int? = null,
+
+	@field:SerializedName("votes")
+	val votes: Int? = null,
+
+	@field:SerializedName("movie_name")
+	val movieName: String? = null
 )

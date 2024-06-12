@@ -13,7 +13,7 @@ interface ApiService {
     fun getRecommendedBooks(@Query("uid") uid: String): Call<BookResponse>
 
     @GET("recommend/movies")
-    fun getRecommendedMovies(): Call<MovieResponse>
+    fun getRecommendedMovies(@Query("uid") uid: String): Call<MovieResponse>
 
     @GET("predict/stress")
     fun getStressPrediction(@Query("uid") uid: String): Call<StressPredictionResponse>

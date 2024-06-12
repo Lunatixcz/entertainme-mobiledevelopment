@@ -23,10 +23,10 @@ class MovieDetailViewModel(application: Application) : AndroidViewModel(applicat
     private val _isLoading = MutableLiveData<Boolean>()
     val isLoading: LiveData<Boolean> = _isLoading
 
-    fun fetchDetailMovies() {
+    fun fetchDetailMovies(uid: String) {
         _isLoading.value = true
 
-        repository.getDetailMovies { movies, isError ->
+        repository.getDetailMovies(uid) { movies, isError ->
             _isLoading.value = false
             if (!isError) {
                 _movies.value = movies

@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.firebase.auth.FirebaseAuth
 import com.mobile.entertainme.R
 import com.mobile.entertainme.adapter.MovieDetailAdapter
 import com.mobile.entertainme.databinding.ActivityMovieDetailBinding
@@ -17,6 +18,7 @@ class MovieDetailActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMovieDetailBinding
     private val movieDetailViewModel: MovieDetailViewModel by viewModels()
     private lateinit var movieDetailAdapter: MovieDetailAdapter
+    private lateinit var auth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,6 +33,8 @@ class MovieDetailActivity : AppCompatActivity() {
 
         supportActionBar?.hide()
 
+        auth = FirebaseAuth.getInstance()
+
         movieDetailAdapter = MovieDetailAdapter()
 
         binding.movieDetailList.apply {
@@ -39,7 +43,12 @@ class MovieDetailActivity : AppCompatActivity() {
         }
 
         observeMovieDetailViewModel()
-        movieDetailViewModel.fetchDetailMovies()
+
+        val user = auth.currentUser
+        val uid = user?.uid
+        if (uid != null) {
+            movieDetailViewModel.fetchDetailMovies(uid)
+        }
     }
 
     private fun observeMovieDetailViewModel() {

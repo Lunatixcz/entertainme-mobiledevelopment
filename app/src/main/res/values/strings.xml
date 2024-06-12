@@ -168,4 +168,9 @@
     <string name="movies_that_are_lesser_known">Movies that are lesser-known</string>
     <string name="movies_that_are_talked_about_quite_often">Movies that are talked about quite often</string>
     <string name="popular_movies_that_many_people_know_abou">Popular movies that many people know abou</string>
+    <string name="publish_year">Publish Year</string>
+    <string name="vote">Votes</string>
+    <string name="cast">Cast</string>
+    <string name="director">Director</string>
+    <string name="minutes">minutes</string>
 </resources>

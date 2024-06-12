@@ -95,6 +95,29 @@
             card_view:layout_constraintTop_toBottomOf="@id/genre"/>
 
         <TextView
+            android:id="@+id/vote"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="8dp"
+            android:text="@string/vote"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            card_view:layout_constraintStart_toEndOf="@id/iv_item_movie_cover"
+            card_view:layout_constraintTop_toBottomOf="@id/genre_text" />
+
+        <TextView
+            android:id="@+id/vote_text"
+            android:layout_width="205dp"
+            android:layout_height="wrap_content"
+            android:text="@string/vote"
+            android:textSize="13sp"
+            android:layout_marginTop="2dp"
+            android:layout_marginStart="12dp"
+            card_view:layout_constraintStart_toEndOf="@id/iv_item_movie_cover"
+            card_view:layout_constraintTop_toBottomOf="@id/vote"/>
+
+        <TextView
             android:id="@+id/duration"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -104,7 +127,7 @@
             android:layout_marginTop="8dp"
             android:layout_marginStart="12dp"
             card_view:layout_constraintStart_toEndOf="@id/iv_item_movie_cover"
-            card_view:layout_constraintTop_toBottomOf="@id/genre_text"/>
+            card_view:layout_constraintTop_toBottomOf="@id/vote_text"/>
 
         <TextView
             android:id="@+id/duration_text"
@@ -115,6 +138,17 @@
             android:layout_marginTop="2dp"
             android:layout_marginStart="12dp"
             card_view:layout_constraintStart_toEndOf="@id/iv_item_movie_cover"
+            card_view:layout_constraintTop_toBottomOf="@id/duration"/>
+
+        <TextView
+            android:id="@+id/minutes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/minutes"
+            android:textSize="13sp"
+            android:layout_marginTop="2dp"
+            android:layout_marginStart="3dp"
+            card_view:layout_constraintStart_toEndOf="@id/duration_text"
             card_view:layout_constraintTop_toBottomOf="@id/duration"/>
 
         <TextView
@@ -162,11 +196,11 @@
             card_view:layout_constraintTop_toBottomOf="@id/rating"/>
 
         <TextView
-            android:id="@+id/overview"
+            android:id="@+id/cast"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="@string/overview"
+            android:text="@string/cast"
             android:textStyle="bold"
             android:textSize="13sp"
             android:layout_marginStart="20dp"
@@ -174,17 +208,42 @@
             card_view:layout_constraintTop_toBottomOf="@id/iv_item_movie_cover"/>
 
         <TextView
-            android:id="@+id/overview_text"
+            android:id="@+id/cast_text"
             android:layout_width="334dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:text="@string/overview"
+            android:layout_marginTop="4dp"
+            android:text="@string/cast"
             android:textSize="13sp"
             android:layout_marginStart="20dp"
             android:layout_marginBottom="20dp"
             android:justificationMode="inter_word"
             card_view:layout_constraintStart_toStartOf="parent"
-            card_view:layout_constraintTop_toBottomOf="@id/overview"
+            card_view:layout_constraintTop_toBottomOf="@id/cast" />
+
+        <TextView
+            android:id="@+id/director"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@string/director"
+            android:textStyle="bold"
+            android:textSize="13sp"
+            android:layout_marginStart="20dp"
+            card_view:layout_constraintStart_toStartOf="parent"
+            card_view:layout_constraintTop_toBottomOf="@id/cast_text"/>
+
+        <TextView
+            android:id="@+id/director_text"
+            android:layout_width="334dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="@string/director"
+            android:textSize="13sp"
+            android:layout_marginStart="20dp"
+            android:layout_marginBottom="20dp"
+            android:justificationMode="inter_word"
+            card_view:layout_constraintStart_toStartOf="parent"
+            card_view:layout_constraintTop_toBottomOf="@id/director"
             card_view:layout_constraintBottom_toBottomOf="parent"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>

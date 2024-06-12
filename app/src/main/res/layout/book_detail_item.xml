@@ -20,7 +20,7 @@
             tools:src="@tools:sample/avatars"
             android:scaleType="centerCrop"
             android:layout_width="114dp"
-            android:layout_height="200dp"
+            android:layout_height="230dp"
             android:layout_marginStart="20dp"
             android:layout_marginTop="20dp"
             card_view:layout_constraintStart_toStartOf="parent"
@@ -40,6 +40,29 @@
             card_view:layout_constraintTop_toTopOf="parent"/>
 
         <TextView
+            android:id="@+id/year"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="8dp"
+            android:text="@string/publish_year"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            card_view:layout_constraintStart_toEndOf="@id/iv_item_book_cover"
+            card_view:layout_constraintTop_toBottomOf="@id/book_title" />
+
+        <TextView
+            android:id="@+id/year_text"
+            android:layout_width="205dp"
+            android:layout_height="wrap_content"
+            android:text="@string/year"
+            android:textSize="13sp"
+            android:layout_marginTop="2dp"
+            android:layout_marginStart="12dp"
+            card_view:layout_constraintStart_toEndOf="@id/iv_item_book_cover"
+            card_view:layout_constraintTop_toBottomOf="@id/year"/>
+
+        <TextView
             android:id="@+id/genre"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -49,7 +72,7 @@
             android:textSize="13sp"
             android:textStyle="bold"
             card_view:layout_constraintStart_toEndOf="@id/iv_item_book_cover"
-            card_view:layout_constraintTop_toBottomOf="@id/book_title" />
+            card_view:layout_constraintTop_toBottomOf="@id/year_text" />
 
         <TextView
             android:id="@+id/genre_text"

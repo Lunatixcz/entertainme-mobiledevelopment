@@ -36,9 +36,10 @@ class BookDetailAdapter : ListAdapter<BookDataItem, BookDetailAdapter.BookViewHo
                 ?.joinToString(", ") ?: "N/A"
 
             binding.bookTitle.text = book.book
+            binding.yearText.text = book.publishYear
             binding.genreText.text = genres
             binding.authorText.text = book.author
-            binding.ratingText.text = book.rating?.toString() ?: "N/A"
+            binding.ratingText.text = book.avgRating?.toString() ?: "N/A"
             binding.overviewText.text = book.description
         }
     }
