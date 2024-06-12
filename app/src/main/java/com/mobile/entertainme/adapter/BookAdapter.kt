@@ -1,5 +1,6 @@
 package com.mobile.entertainme.adapter
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
@@ -38,6 +39,14 @@ class BookAdapter : ListAdapter<BookDataItem, BookAdapter.BookViewHolder>(DIFF_C
     override fun onBindViewHolder(holder: BookViewHolder, position: Int) {
         val book = getItem(position)
         holder.bind(book)
+
+        val layoutParams = holder.itemView.layoutParams as ViewGroup.MarginLayoutParams
+        if (position == 0) {
+            layoutParams.setMargins(18.dpToPx(holder.itemView.context), 0, 18.dpToPx(holder.itemView.context), 0)
+        } else {
+            layoutParams.setMargins(0, 0, 18.dpToPx(holder.itemView.context), 0)
+        }
+        holder.itemView.layoutParams = layoutParams
     }
 
     companion object {
@@ -51,4 +60,9 @@ class BookAdapter : ListAdapter<BookDataItem, BookAdapter.BookViewHolder>(DIFF_C
             }
         }
     }
+
+    private fun Int.dpToPx(context: Context): Int {
+        return (this * context.resources.displayMetrics.density).toInt()
+    }
 }
+

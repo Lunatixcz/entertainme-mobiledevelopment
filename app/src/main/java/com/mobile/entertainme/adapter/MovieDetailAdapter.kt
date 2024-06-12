@@ -14,7 +14,7 @@ class MovieDetailAdapter : ListAdapter<MovieDataItem, MovieDetailAdapter.MovieVi
     inner class MovieViewHolder(private val binding: MovieDetailItemBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(movie: MovieDataItem) {
             binding.ivItemMovieCover.load(movie.coverUrl)
-            binding.movieYear.text = movie.year.toString()
+            binding.yearText.text = movie.year.toString()
             binding.movieTitle.text = movie.movieName
             binding.genreText.text = movie.genre
             binding.voteText.text = movie.votes.toString()

@@ -20,7 +20,7 @@
             tools:src="@tools:sample/avatars"
             android:scaleType="centerCrop"
             android:layout_width="114dp"
-            android:layout_height="200dp"
+            android:layout_height="250dp"
             android:layout_marginStart="20dp"
             android:layout_marginTop="20dp"
             card_view:layout_constraintStart_toStartOf="parent"
@@ -29,7 +29,7 @@
 
         <TextView
             android:id="@+id/movie_title"
-            android:layout_width="wrap_content"
+            android:layout_width="205dp"
             android:layout_height="wrap_content"
             android:text="@string/movie_title"
             android:textSize="13sp"
@@ -37,39 +37,30 @@
             android:layout_marginTop="20dp"
             android:layout_marginStart="12dp"
             card_view:layout_constraintStart_toEndOf="@id/iv_item_movie_cover"
-            card_view:layout_constraintTop_toTopOf="parent"/>
+            card_view:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/parenthesis_open"
+            android:id="@+id/year"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/parenthesis_open"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="8dp"
+            android:text="@string/year"
             android:textSize="13sp"
-            android:layout_marginTop="20dp"
-            android:layout_marginStart="6dp"
-            card_view:layout_constraintStart_toEndOf="@id/movie_title"
-            card_view:layout_constraintTop_toTopOf="parent"/>
+            android:textStyle="bold"
+            card_view:layout_constraintStart_toEndOf="@id/iv_item_movie_cover"
+            card_view:layout_constraintTop_toBottomOf="@id/movie_title" />
 
         <TextView
-            android:id="@+id/movie_year"
-            android:layout_width="wrap_content"
+            android:id="@+id/year_text"
+            android:layout_width="205dp"
             android:layout_height="wrap_content"
             android:text="@string/year"
             android:textSize="13sp"
-            android:layout_marginTop="20dp"
-            android:layout_marginStart="1dp"
-            card_view:layout_constraintStart_toEndOf="@id/parenthesis_open"
-            card_view:layout_constraintTop_toTopOf="parent"/>
-
-        <TextView
-            android:id="@+id/parenthesis_close"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/parenthesis_close"
-            android:textSize="13sp"
-            android:layout_marginTop="20dp"
-            card_view:layout_constraintStart_toEndOf="@id/movie_year"
-            card_view:layout_constraintTop_toTopOf="parent"/>
+            android:layout_marginTop="2dp"
+            android:layout_marginStart="12dp"
+            card_view:layout_constraintStart_toEndOf="@id/iv_item_movie_cover"
+            card_view:layout_constraintTop_toBottomOf="@id/year"/>
 
         <TextView
             android:id="@+id/genre"
@@ -81,7 +72,7 @@
             android:textSize="13sp"
             android:textStyle="bold"
             card_view:layout_constraintStart_toEndOf="@id/iv_item_movie_cover"
-            card_view:layout_constraintTop_toBottomOf="@id/movie_title" />
+            card_view:layout_constraintTop_toBottomOf="@id/year_text" />
 
         <TextView
             android:id="@+id/genre_text"

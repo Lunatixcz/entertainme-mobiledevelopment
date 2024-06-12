@@ -1,5 +1,6 @@
 package com.mobile.entertainme.adapter
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
@@ -20,6 +21,14 @@ class MovieAdapter : ListAdapter<MovieDataItem, MovieAdapter.MovieViewHolder>(DI
     override fun onBindViewHolder(holder: MovieViewHolder, position: Int) {
         val currentItem = getItem(position)
         holder.bind(currentItem)
+
+        val layoutParams = holder.itemView.layoutParams as ViewGroup.MarginLayoutParams
+        if (position == 0) {
+            layoutParams.setMargins(18.dpToPx(holder.itemView.context), 0, 18.dpToPx(holder.itemView.context), 0)
+        } else {
+            layoutParams.setMargins(0, 0, 18.dpToPx(holder.itemView.context), 0)
+        }
+        holder.itemView.layoutParams = layoutParams
     }
 
     inner class MovieViewHolder(private val binding: RvHomeItemBinding) : RecyclerView.ViewHolder(binding.root) {
@@ -42,4 +51,8 @@ class MovieAdapter : ListAdapter<MovieDataItem, MovieAdapter.MovieViewHolder>(DI
             }
         }
     }
+    private fun Int.dpToPx(context: Context): Int {
+        return (this * context.resources.displayMetrics.density).toInt()
+    }
 }
+
