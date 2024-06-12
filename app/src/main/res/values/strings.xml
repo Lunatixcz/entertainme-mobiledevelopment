@@ -121,7 +121,7 @@
     <string name="no">No</string>
     <string name="see_result">See Result</string>
     <string name="book_title">book title</string>
-    <string name="year">year</string>
+    <string name="year">Year</string>
     <string name="parenthesis_open">(</string>
     <string name="parenthesis_close">)</string>
     <string name="genre">Genre</string>
@@ -167,7 +167,7 @@
     <string name="long_more_than_150_minutes">Long (more than 150 minutes)</string>
     <string name="movies_that_are_lesser_known">Movies that are lesser-known</string>
     <string name="movies_that_are_talked_about_quite_often">Movies that are talked about quite often</string>
-    <string name="popular_movies_that_many_people_know_abou">Popular movies that many people know abou</string>
+    <string name="popular_movies_that_many_people_know_about">Popular movies that many people know about</string>
     <string name="publish_year">Publish Year</string>
     <string name="vote">Votes</string>
     <string name="cast">Cast</string>

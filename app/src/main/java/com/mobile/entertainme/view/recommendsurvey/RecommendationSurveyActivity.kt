@@ -70,7 +70,7 @@ class RecommendationSurveyActivity : AppCompatActivity() {
             binding.bookFirstQuestionRadioGroup to Pair(binding.bookFirstQuestionOption2.id, binding.edBookFirstQuestion),
             binding.bookSecondQuestionRadioGroup to Pair(binding.bookSecondQuestionOption2.id, binding.edBookSecondQuestion),
             binding.bookThirdQuestionRadioGroup to Pair(binding.bookThirdQuestionOption2.id, binding.edBookThirdQuestion),
-            binding.movieFifthQuestionRadioGroup to Pair(binding.movieSixthQuestionOption2.id, binding.edMovieSixthQuestion),
+            binding.movieFifthQuestionRadioGroup to Pair(binding.movieFifthQuestionOption2.id, binding.edMovieFifthQuestion),
             binding.movieSixthQuestionRadioGroup to Pair(binding.movieSixthQuestionOption2.id, binding.edMovieSixthQuestion),
             binding.tourFirstQuestionRadioGroup to Pair(binding.tourFirstQuestionOption2.id, binding.edTourFirstQuestion),
             binding.tourSecondQuestionRadioGroup to Pair(binding.tourSecondQuestionOption2.id, binding.edTourSecondQuestion)
@@ -198,8 +198,6 @@ class RecommendationSurveyActivity : AppCompatActivity() {
             binding.edBookFirstQuestion,
             binding.edBookSecondQuestion,
             binding.edBookThirdQuestion,
-            binding.edMovieThirdQuestion,
-            binding.edMovieFourthQuestion,
             binding.edMovieFifthQuestion,
             binding.edMovieSixthQuestion,
             binding.edTourFirstQuestion,
@@ -210,11 +208,8 @@ class RecommendationSurveyActivity : AppCompatActivity() {
             binding.bookFirstQuestionRadioGroup,
             binding.bookSecondQuestionRadioGroup,
             binding.bookThirdQuestionRadioGroup,
-            binding.movieFirstQuestionRadioGroup,
-            binding.movieSecondQuestionRadioGroup,
             binding.movieFifthQuestionRadioGroup,
             binding.movieSixthQuestionRadioGroup,
-            binding.movieSeventhQuestionRadioGroup,
             binding.tourFirstQuestionRadioGroup,
             binding.tourSecondQuestionRadioGroup
         )
