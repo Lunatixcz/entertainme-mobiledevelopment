@@ -9,6 +9,8 @@ import com.mobile.entertainme.response.BookResponse
 import com.mobile.entertainme.response.MovieDataItem
 import com.mobile.entertainme.response.MovieResponse
 import com.mobile.entertainme.response.StressPredictionResponse
+import com.mobile.entertainme.response.TravelDataItem
+import com.mobile.entertainme.response.TravelResponse
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -20,6 +22,9 @@ class HomeRepository {
 
     private val _movies = MutableLiveData<List<MovieDataItem>>()
     val movies: LiveData<List<MovieDataItem>> = _movies
+
+    private val _travel = MutableLiveData<List<TravelDataItem>>()
+    val travel: LiveData<List<TravelDataItem>> = _travel
 
     fun fetchBooks(uid: String) {
         val client = ApiConfig.getApiService().getRecommendedBooks(uid)
@@ -46,6 +51,21 @@ class HomeRepository {
             }
 
             override fun onFailure(call: Call<MovieResponse>, t: Throwable) {
+                // Handle failure
+            }
+        })
+    }
+
+    fun fetchTravel(uid: String) {
+        val client = ApiConfig.getApiService().getRecommendedTravel(uid)
+        client.enqueue(object : Callback<TravelResponse> {
+            override fun onResponse(call: Call<TravelResponse>, response: Response<TravelResponse>) {
+                if (response.isSuccessful) {
+                    _travel.value = response.body()?.recommendations?.filterNotNull()
+                }
+            }
+
+            override fun onFailure(call: Call<TravelResponse>, t: Throwable) {
                 // Handle failure
             }
         })

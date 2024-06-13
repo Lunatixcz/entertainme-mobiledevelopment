@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.mobile.entertainme.view.add.AddScheduleViewModel
 import com.mobile.entertainme.view.detail.book.BookDetailViewModel
 import com.mobile.entertainme.view.detail.movie.MovieDetailViewModel
+import com.mobile.entertainme.view.detail.travel.TravelDetailViewModel
 import com.mobile.entertainme.view.login.LoginViewModel
 import com.mobile.entertainme.view.recommendsurvey.RecommendationSurveyViewModel
 import com.mobile.entertainme.view.signup.SignupViewModel
@@ -26,6 +27,7 @@ class ViewModelFactory(private val application: Application) : ViewModelProvider
             modelClass.isAssignableFrom(SurveyViewModel::class.java) -> SurveyViewModel(application) as T
             modelClass.isAssignableFrom(BookDetailViewModel::class.java) -> BookDetailViewModel(application) as T
             modelClass.isAssignableFrom(MovieDetailViewModel::class.java) -> MovieDetailViewModel(application) as T
+            modelClass.isAssignableFrom(TravelDetailViewModel::class.java) -> TravelDetailViewModel(application) as T
             modelClass.isAssignableFrom(AddScheduleViewModel::class.java) -> AddScheduleViewModel(application) as T
             else -> throw IllegalArgumentException("Unknown ViewModel class")
         }

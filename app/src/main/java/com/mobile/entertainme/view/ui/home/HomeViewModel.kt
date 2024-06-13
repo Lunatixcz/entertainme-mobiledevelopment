@@ -14,6 +14,7 @@ import com.google.firebase.database.ValueEventListener
 import com.mobile.entertainme.repository.HomeRepository
 import com.mobile.entertainme.response.BookDataItem
 import com.mobile.entertainme.response.MovieDataItem
+import com.mobile.entertainme.response.TravelDataItem
 import com.mobile.entertainme.utils.UserPreferences
 
 class HomeViewModel(application: Application) : AndroidViewModel(application) {
@@ -21,6 +22,7 @@ class HomeViewModel(application: Application) : AndroidViewModel(application) {
     private val repository: HomeRepository = HomeRepository()
     val books: LiveData<List<BookDataItem>> = repository.books
     val movies: LiveData<List<MovieDataItem>> = repository.movies
+    val travel: LiveData<List<TravelDataItem>> = repository.travel
 
     private val _username = MutableLiveData<String>()
     val username: LiveData<String> = _username
@@ -73,6 +75,11 @@ class HomeViewModel(application: Application) : AndroidViewModel(application) {
     fun fetchMovies() {
         val uid = auth.currentUser?.uid ?: return
         repository.fetchMovies(uid)
+    }
+
+    fun fetchTravel() {
+        val uid = auth.currentUser?.uid ?: return
+        repository.fetchTravel(uid)
     }
 
     fun logout() {

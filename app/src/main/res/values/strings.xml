@@ -173,4 +173,9 @@
     <string name="cast">Cast</string>
     <string name="director">Director</string>
     <string name="minutes">minutes</string>
+    <string name="travel_title">Travel Title</string>
+    <string name="description">Description</string>
+    <string name="city">City</string>
+    <string name="price">Price</string>
+    <string name="title_activity_maps">MapsActivity</string>
 </resources>

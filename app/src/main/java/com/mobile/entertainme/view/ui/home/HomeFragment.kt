@@ -17,12 +17,14 @@ import com.google.firebase.auth.FirebaseAuth
 import com.mobile.entertainme.R
 import com.mobile.entertainme.adapter.BookAdapter
 import com.mobile.entertainme.adapter.MovieAdapter
+import com.mobile.entertainme.adapter.TravelAdapter
 import com.mobile.entertainme.api.ApiConfig
 import com.mobile.entertainme.databinding.FragmentHomeBinding
 import com.mobile.entertainme.response.BookResponse
 import com.mobile.entertainme.response.MovieResponse
 import com.mobile.entertainme.view.detail.book.BookDetailActivity
 import com.mobile.entertainme.view.detail.movie.MovieDetailActivity
+import com.mobile.entertainme.view.detail.travel.TravelDetailActivity
 import com.mobile.entertainme.view.login.LoginActivity
 import com.mobile.entertainme.view.ui.survey.SurveyFragment
 import retrofit2.Call
@@ -36,6 +38,7 @@ class HomeFragment : Fragment() {
     private val binding get() = _binding!!
     private lateinit var bookAdapter: BookAdapter
     private lateinit var movieAdapter: MovieAdapter
+    private lateinit var travelAdapter: TravelAdapter
     private lateinit var auth: FirebaseAuth
     private lateinit var homeViewModel: HomeViewModel
 
@@ -53,6 +56,7 @@ class HomeFragment : Fragment() {
 
         bookAdapter = BookAdapter()
         movieAdapter = MovieAdapter()
+        travelAdapter = TravelAdapter()
 
         homeViewModel.username.observe(viewLifecycleOwner) { username ->
             binding.username.text = username
@@ -66,6 +70,11 @@ class HomeFragment : Fragment() {
         homeViewModel.movies.observe(viewLifecycleOwner) { movies ->
             showLoading(binding.movieProgressBar, false)
             movieAdapter.submitList(movies)
+        }
+
+        homeViewModel.travel.observe(viewLifecycleOwner) { travel ->
+            showLoading(binding.travelProgressBar, false)
+            travelAdapter.submitList(travel)
         }
 
         homeViewModel.stressPrediction.observe(viewLifecycleOwner) { prediction ->
@@ -108,9 +117,14 @@ class HomeFragment : Fragment() {
             startActivity(Intent(requireContext(), MovieDetailActivity::class.java))
         }
 
+        binding.seeAllTravels.setOnClickListener {
+            startActivity(Intent(requireContext(), TravelDetailActivity::class.java))
+        }
+
         setupRecyclerView()
         fetchBooks()
         fetchMovies()
+        fetchTravel()
 
         return root
     }
@@ -125,6 +139,11 @@ class HomeFragment : Fragment() {
             layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
             adapter = movieAdapter
         }
+
+        binding.travelRv.apply {
+            layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+            adapter = travelAdapter
+        }
     }
 
     private fun fetchBooks() {
@@ -135,6 +154,11 @@ class HomeFragment : Fragment() {
     private fun fetchMovies() {
         showLoading(binding.movieProgressBar, true)
         homeViewModel.fetchMovies()
+    }
+
+    private fun fetchTravel() {
+        showLoading(binding.travelProgressBar, true)
+        homeViewModel.fetchTravel()
     }
 
     private fun showLoading(progressBar: ProgressBar, isLoading: Boolean) {
