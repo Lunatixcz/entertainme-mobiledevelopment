@@ -50,7 +50,8 @@
     <string name="movie_first_question">What year range of movies are you interested in watching?</string>
     <string name="movie_second_question">What duration of movies do you prefer?</string>
     <string name="movie_third_question">Which movie genres do you like the most?</string>
-    <string name="movie_fourth_question">What is the minimum rating you are looking for in a movie?</string>
+    <string name="movie_third_question_hint">(Please choose only one genre from this collection: Action, Fantasy, Comedy, Drama, Sci-FI, Horror, Mystery, Thriller, War, Western, Adventure, Animation, Biography, Crime, Music, Romance, Sport)</string>
+    <string name="movie_fourth_question">What is the minimum rating you are looking for in a movie? (1–10)</string>
     <string name="movie_fifth_question">Do you want to watch a movie directed by a specific director?</string>
     <string name="movie_sixth_question">Do you want to watch a movie starring a specific actor/actress?</string>
     <string name="movie_seventh_question">What type of movies do you prefer to watch?</string>

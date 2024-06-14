@@ -129,6 +129,11 @@ class HomeFragment : Fragment() {
         return root
     }
 
+    override fun onResume() {
+        super.onResume()
+        homeViewModel.fetchStressLevel()
+    }
+
     private fun setupRecyclerView() {
         binding.bookRv.apply {
             layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)

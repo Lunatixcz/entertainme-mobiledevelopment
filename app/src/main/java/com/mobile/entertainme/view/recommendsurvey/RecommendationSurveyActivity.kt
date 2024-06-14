@@ -2,6 +2,7 @@ package com.mobile.entertainme.view.recommendsurvey
 
 import android.content.Intent
 import android.os.Bundle
+import android.text.InputFilter
 import android.view.View
 import android.widget.EditText
 import android.widget.RadioButton
@@ -63,6 +64,19 @@ class RecommendationSurveyActivity : AppCompatActivity() {
                 Toast.makeText(this, "Error: $errorMessage", Toast.LENGTH_SHORT).show()
             }
         }
+
+        binding.edMovieFourthQuestion.filters = arrayOf(InputFilter { source, start, end, dest, dstart, dend ->
+            val input = dest.toString() + source.toString()
+            try {
+                if (input.toInt() <= 10) {
+                    null
+                } else {
+                    ""
+                }
+            } catch (e: NumberFormatException) {
+                ""
+            }
+        })
     }
 
     private fun setupRadioGroupListeners() {

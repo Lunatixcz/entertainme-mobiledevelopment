@@ -51,7 +51,7 @@ class HomeViewModel(application: Application) : AndroidViewModel(application) {
         })
     }
 
-    private fun fetchStressLevel() {
+    fun fetchStressLevel() {
         val uid = auth.currentUser?.uid ?: return
 
         database.child(uid).child("stress_level").addListenerForSingleValueEvent(object : ValueEventListener {
