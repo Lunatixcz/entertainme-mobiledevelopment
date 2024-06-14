@@ -77,6 +77,15 @@ class RecommendationSurveyActivity : AppCompatActivity() {
                 ""
             }
         })
+
+        binding.edMovieThirdQuestion.filters = arrayOf(InputFilter { source, start, end, dest, dstart, dend ->
+            if (source.contains(" ") || source.contains(",")) {
+                ""
+            } else {
+                null
+            }
+        })
+
     }
 
     private fun setupRadioGroupListeners() {
