@@ -32,7 +32,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/survey_stress_description"
-                android:textColor="@color/black"
+                android:textColor="@color/text_color_primary"
                 android:textAlignment="center"
                 android:paddingHorizontal="14dp"
                 android:textSize="19sp"
@@ -48,7 +48,7 @@
                 android:layout_marginTop="44dp"
                 android:paddingHorizontal="24dp"
                 android:text="@string/stress_first_question"
-                android:textColor="@color/black"
+                android:textColor="@color/text_color_primary"
                 android:textSize="14sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
@@ -70,7 +70,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text=""
-                    android:inputType="number"/>
+                    android:inputType="number"
+                    android:textColor="@color/text_color_primary"/>
             </com.google.android.material.textfield.TextInputLayout>
 
 
@@ -79,7 +80,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/stress_second_question"
-                android:textColor="@color/black"
+                android:textColor="@color/text_color_primary"
                 android:paddingHorizontal="24dp"
                 android:textSize="14sp"
                 android:layout_marginTop="30dp"
@@ -100,19 +101,22 @@
                     android:id="@+id/stress_second_question_option1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/poor"/>
+                    android:text="@string/poor"
+                    android:textColor="@color/text_color_primary"/>
 
                 <RadioButton
                     android:id="@+id/stress_second_question_option2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/fair"/>
+                    android:text="@string/fair"
+                    android:textColor="@color/text_color_primary"/>
 
                 <RadioButton
                     android:id="@+id/stress_second_question_option3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/good"/>
+                    android:text="@string/good"
+                    android:textColor="@color/text_color_primary"/>
             </RadioGroup>
 
             <TextView
@@ -120,7 +124,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/stress_third_question"
-                android:textColor="@color/black"
+                android:textColor="@color/text_color_primary"
                 android:paddingHorizontal="24dp"
                 android:textSize="14sp"
                 android:layout_marginTop="30dp"
@@ -141,19 +145,22 @@
                     android:id="@+id/stress_third_question_option1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/slightly_active"/>
+                    android:text="@string/slightly_active"
+                    android:textColor="@color/text_color_primary"/>
 
                 <RadioButton
                     android:id="@+id/stress_third_question_option2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/moderately_active"/>
+                    android:text="@string/moderately_active"
+                    android:textColor="@color/text_color_primary"/>
 
                 <RadioButton
                     android:id="@+id/stress_third_question_option3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/very_active"/>
+                    android:text="@string/very_active"
+                    android:textColor="@color/text_color_primary"/>
             </RadioGroup>
 
             <TextView
@@ -161,7 +168,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/stress_fourth_question"
-                android:textColor="@color/black"
+                android:textColor="@color/text_color_primary"
                 android:paddingHorizontal="24dp"
                 android:textSize="14sp"
                 android:layout_marginTop="30dp"
@@ -182,19 +189,22 @@
                     android:id="@+id/stress_fourth_question_option1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/obesity"/>
+                    android:text="@string/obesity"
+                    android:textColor="@color/text_color_primary"/>
 
                 <RadioButton
                     android:id="@+id/stress_fourth_question_option2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/overweight"/>
+                    android:text="@string/overweight"
+                    android:textColor="@color/text_color_primary"/>
 
                 <RadioButton
                     android:id="@+id/stress_fourth_question_option3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/normal"/>
+                    android:text="@string/normal"
+                    android:textColor="@color/text_color_primary"/>
 
                 <RadioButton
                     android:id="@+id/stress_fourth_question_option4"
@@ -208,7 +218,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/stress_fifth_question"
-                android:textColor="@color/black"
+                android:textColor="@color/text_color_primary"
                 android:paddingHorizontal="24dp"
                 android:textSize="14sp"
                 android:layout_marginTop="30dp"
@@ -229,19 +239,22 @@
                     android:id="@+id/stress_fifth_question_option1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/low"/>
+                    android:text="@string/low"
+                    android:textColor="@color/text_color_primary"/>
 
                 <RadioButton
                     android:id="@+id/stress_fifth_question_option2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/normal"/>
+                    android:text="@string/normal"
+                    android:textColor="@color/text_color_primary"/>
 
                 <RadioButton
                     android:id="@+id/stress_fifth_question_option3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/high"/>
+                    android:text="@string/high"
+                    android:textColor="@color/text_color_primary"/>
             </RadioGroup>
 
             <TextView
@@ -249,7 +262,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/stress_sixth_question"
-                android:textColor="@color/black"
+                android:textColor="@color/text_color_primary"
                 android:paddingHorizontal="24dp"
                 android:textSize="14sp"
                 android:layout_marginTop="30dp"
@@ -270,19 +283,22 @@
                     android:id="@+id/stress_sixth_question_option1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/low"/>
+                    android:text="@string/low"
+                    android:textColor="@color/text_color_primary"/>
 
                 <RadioButton
                     android:id="@+id/stress_sixth_question_option2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/normal"/>
+                    android:text="@string/normal"
+                    android:textColor="@color/text_color_primary"/>
 
                 <RadioButton
                     android:id="@+id/stress_sixth_question_option3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/high"/>
+                    android:text="@string/high"
+                    android:textColor="@color/text_color_primary"/>
             </RadioGroup>
 
             <TextView
@@ -290,7 +306,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/stress_seventh_question"
-                android:textColor="@color/black"
+                android:textColor="@color/text_color_primary"
                 android:paddingHorizontal="24dp"
                 android:textSize="14sp"
                 android:layout_marginTop="30dp"
@@ -311,19 +327,22 @@
                     android:id="@+id/stress_seventh_question_option1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/rarely"/>
+                    android:text="@string/rarely"
+                    android:textColor="@color/text_color_primary"/>
 
                 <RadioButton
                     android:id="@+id/stress_seventh_question_option2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/occasionally"/>
+                    android:text="@string/occasionally"
+                    android:textColor="@color/text_color_primary"/>
 
                 <RadioButton
                     android:id="@+id/stress_seventh_question_option3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/frequently"/>
+                    android:text="@string/frequently"
+                    android:textColor="@color/text_color_primary"/>
             </RadioGroup>
 
             <TextView
@@ -331,7 +350,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/stress_eighth_question"
-                android:textColor="@color/black"
+                android:textColor="@color/text_color_primary"
                 android:paddingHorizontal="24dp"
                 android:textSize="14sp"
                 android:layout_marginTop="30dp"
@@ -352,13 +371,15 @@
                     android:id="@+id/stress_eighth_question_option1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/yes"/>
+                    android:text="@string/yes"
+                    android:textColor="@color/text_color_primary"/>
 
                 <RadioButton
                     android:id="@+id/stress_eighth_question_option2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/no"/>
+                    android:text="@string/no"
+                    android:textColor="@color/text_color_primary"/>
             </RadioGroup>
 
             <Button

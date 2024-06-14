@@ -5,35 +5,34 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/light_gray"
     tools:context=".view.login.LoginActivity">
 
     <TextView
         android:id="@+id/login_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
         android:text="@string/login_title"
+        android:textColor="@color/purple"
         android:textSize="48sp"
         android:textStyle="bold"
-        android:textColor="@color/purple"
-        android:layout_marginTop="80dp"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/login_description"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="60dp"
-        android:text="@string/login_description"
-        android:textSize="23sp"
-        android:textAlignment="center"
         android:paddingHorizontal="14dp"
-        app:layout_constraintStart_toStartOf="parent"
+        android:text="@string/login_description"
+        android:textAlignment="center"
+        android:textSize="23sp"
+        android:textColor="@color/text_color_primary"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/login_title"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/login_title" />
 
     <TextView
         android:id="@+id/emailTextView"
@@ -42,7 +41,7 @@
         android:layout_marginStart="20dp"
         android:layout_marginTop="40dp"
         android:text="@string/email"
-        android:textColor="@color/black"
+        android:textColor="@color/text_color_primary"
         android:textSize="19sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/login_description" />
@@ -52,11 +51,11 @@
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="2dp"
         android:layout_marginStart="20dp"
+        android:layout_marginTop="2dp"
         android:layout_marginEnd="20dp"
-        app:boxBackgroundMode="outline"
         app:boxBackgroundColor="@color/light_purple"
+        app:boxBackgroundMode="outline"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/emailTextView">
@@ -77,8 +76,8 @@
         android:layout_marginStart="20dp"
         android:layout_marginTop="12dp"
         android:text="@string/password"
+        android:textColor="@color/text_color_primary"
         android:textSize="19sp"
-        android:textColor="@color/black"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/emailEditTextLayout" />
 
@@ -88,10 +87,10 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
         android:layout_marginTop="2dp"
-        app:endIconMode="password_toggle"
+        android:layout_marginEnd="20dp"
         app:boxBackgroundColor="@color/light_purple"
+        app:endIconMode="password_toggle"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/passwordTextView">
@@ -111,67 +110,67 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="20dp"
         android:layout_marginTop="20dp"
+        android:backgroundTint="@color/purple"
         android:text="@string/login"
         android:textSize="19sp"
-        android:backgroundTint="@color/purple"
-        app:layout_constraintTop_toBottomOf="@id/passwordEditTextLayout"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintTop_toBottomOf="@id/passwordEditTextLayout" />
 
     <TextView
         android:id="@+id/no_account_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="112dp"
+        android:layout_marginTop="4dp"
         android:text="@string/dont_have_account"
         android:textSize="13sp"
-        app:layout_constraintTop_toBottomOf="@id/login_btn"
+        android:textColor="@color/text_color_primary"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginStart="112dp"
-        android:layout_marginTop="4dp"/>
+        app:layout_constraintTop_toBottomOf="@id/login_btn" />
 
     <TextView
         android:id="@+id/signup_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/signup"
-        android:textSize="13sp"
-        android:textColor="@color/purple"
-        android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@id/login_btn"
-        app:layout_constraintStart_toEndOf="@id/no_account_text"
         android:layout_marginStart="3dp"
-        android:layout_marginTop="4dp"/>
+        android:layout_marginTop="4dp"
+        android:text="@string/signup"
+        android:textColor="@color/purple"
+        android:textSize="13sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@id/no_account_text"
+        app:layout_constraintTop_toBottomOf="@id/login_btn" />
 
     <TextView
         android:id="@+id/or_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         android:text="@string/or"
-        android:textSize="13sp"
         android:textColor="@color/gray"
-
-        app:layout_constraintTop_toBottomOf="@id/no_account_text"
-        app:layout_constraintStart_toStartOf="parent"
+        android:textSize="13sp"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="10dp"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/no_account_text" />
 
     <View
         android:layout_width="172dp"
         android:layout_height=".5dp"
-        app:layout_constraintTop_toBottomOf="@id/no_account_text"
-        app:layout_constraintStart_toStartOf="parent"
-        android:background="@color/gray"
+        android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
-        android:layout_marginStart="20dp"/>
+        android:background="@color/gray"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/no_account_text" />
 
     <View
         android:layout_width="172dp"
         android:layout_height=".5dp"
-        app:layout_constraintTop_toBottomOf="@id/no_account_text"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:background="@color/gray"
         android:layout_marginTop="20dp"
-        android:layout_marginEnd="20dp"/>
+        android:layout_marginEnd="20dp"
+        android:background="@color/gray"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/no_account_text" />
 
     <Button
         android:id="@+id/google_login_btn"
@@ -179,24 +178,24 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="20dp"
         android:layout_marginTop="20dp"
-        android:text="@string/continue_with_google"
-        android:textColor="@color/black"
-        android:textSize="18sp"
         android:backgroundTint="@color/white"
         android:drawableLeft="@drawable/google_logo"
         android:gravity="center_vertical"
         android:paddingStart="80dp"
-        app:layout_constraintTop_toBottomOf="@id/or_text"
+        android:text="@string/continue_with_google"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintTop_toBottomOf="@id/or_text" />
 
     <ProgressBar
         android:id="@+id/progressBar"
         style="?android:attr/progressBarStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:visibility="gone"
         android:progressTint="@color/purple"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

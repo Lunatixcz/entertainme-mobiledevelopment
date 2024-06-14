@@ -5,7 +5,6 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/light_gray"
     app:layoutDescription="@xml/activity_welcome_scene"
     tools:context=".view.welcome.WelcomeActivity">
 
@@ -41,7 +40,7 @@
         android:paddingHorizontal="20dp"
         android:text="@string/welcome_desc_1"
         android:textAlignment="center"
-        android:textColor="@color/black"
+        android:textColor="@color/text_color_primary"
         android:textSize="19sp"
         app:layout_constraintTop_toBottomOf="@+id/welcome_title_1"
         app:layout_constraintStart_toStartOf="@id/welcome_title_1"
@@ -82,7 +81,7 @@
         android:paddingHorizontal="20dp"
         android:text="@string/welcome_desc_2"
         android:textAlignment="center"
-        android:textColor="@color/black"
+        android:textColor="@color/text_color_primary"
         android:textSize="19sp"
         app:layout_constraintTop_toBottomOf="@+id/welcome_title_2"
         app:layout_constraintStart_toStartOf="@id/welcome_title_2"
@@ -120,7 +119,7 @@
         android:paddingHorizontal="20dp"
         android:text="@string/welcome_desc_3"
         android:textAlignment="center"
-        android:textColor="@color/black"
+        android:textColor="@color/text_color_primary"
         android:textSize="19sp"
         app:layout_constraintTop_toBottomOf="@+id/welcome_title_3"
         android:translationX="500dp"/>
@@ -129,7 +128,7 @@
         android:id="@+id/menu1"
         android:layout_width="30dp"
         android:layout_height="30dp"
-        android:layout_marginStart="149dp"
+        android:layout_marginStart="152dp"
         android:layout_marginTop="50dp"
         app:altSrc="@drawable/ic_circle_full_24"
         app:layout_constraintEnd_toStartOf="@+id/menu2"
