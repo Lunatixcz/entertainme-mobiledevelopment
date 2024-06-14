@@ -191,6 +191,7 @@
                 android:drawableLeft="@drawable/google_logo"
                 android:gravity="center_vertical"
                 android:paddingStart="80dp"
+                android:paddingEnd="80dp"
                 android:text="@string/continue_with_google"
                 android:textColor="@color/black"
                 android:textSize="18sp"
