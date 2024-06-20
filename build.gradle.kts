@@ -5,5 +5,4 @@ plugins {
     alias(libs.plugins.google.gms.google.services) apply false
     alias(libs.plugins.kotlin.parcelize) apply false
     alias(libs.plugins.google.android.libraries.mapsplatform.secrets.gradle.plugin) apply false
-    id("com.google.dagger.hilt.android") version "2.44" apply false
 }
