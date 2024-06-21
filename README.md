@@ -1,10 +1,7 @@
 # Mobile Development EntertainMe
 
 ## Overview
-This is an EntertainMe app repository. This app is an entertainment recommendation app that was created as part of the requirement to graduate from Bangkit Academy 2024 as a Mobile Development Learning path.
-
-## Project Contributor
-- `A319D4KY4424` - [Lorenzo Liunardo](https://github.com/LorenzoLiu75)
+This is a repository storing the mobile development portion of the EntertainMe project. The application is an entertainment recommendation app that was created as part of the requirement to graduate from Bangkit Academy 2024 as a Mobile Development Learning path.
 
 ## TODO
 - [x] Design the application UI/UX using figma
